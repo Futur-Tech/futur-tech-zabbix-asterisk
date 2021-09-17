@@ -1,12 +1,26 @@
 # Asterisk Zabbix Template
 
-**This template was originally made by InitZero and adapted to fit our needs. https://github.com/ugoviti/zabbix-templates**
-
 Check Asterisk PBX engine using Zabbix Network Monitoring system
 
-![Asterisk Zabbix Monitor](asterisk-dashboard.png)
+**This template and scripts was originally made by InitZero and adapted to fit our needs. https://github.com/ugoviti/zabbix-templates**
 
-![Asterisk Zabbix Monitor](asterisk-dashboard2.png)
+## Deploy Commands
+
+Everything is executed by only a few basic deploy scripts. 
+
+```bash
+cd /usr/local/src
+git clone https://github.com/Futur-Tech/futur-tech-zabbix-apt.git
+cd futur-tech-zabbix-apt
+
+./deploy.sh 
+# Main deploy script
+
+./deploy-update.sh -b main
+# This script will automatically pull the latest version of the branch ("main" in the example) and relaunch itself if a new version is found. Then it will run deploy.sh. Also note that any additional arguments given to this script will be passed to the deploy.sh script.
+```
+
+Finally import the template XML in Zabbix Server and attach it to your host.
 
 ## Features
 - Easy installation and fast configuration (pure bash script without extra dependencies to install)
@@ -24,11 +38,6 @@ Check Asterisk PBX engine using Zabbix Network Monitoring system
 - Monitoring of asterisk version
 - Monitoring of pjsip online/offline endpoints and registrations
 - Monitoring of sip/iax2 online/offline peers and registrations
-- Graphical dashboard with useful Asterisk data:
-  - Asterisk Concurrent Active Calls Graph
-  - Asterisk Longest Call Duration
-  - Asterisk Peers Online/Offline Status count
-  - Asterisk Trunks Online/Offline Status count
 - Triggers for:
   - Max active concurrent calls
   - Call max duration time
@@ -39,25 +48,6 @@ Check Asterisk PBX engine using Zabbix Network Monitoring system
   - Trunks registrations problems
   - IAX2/SIP/PJSIP Peers/Endpoints unreachable
   - IAX2/SIP/PJSIP Peers/Endpoints high latency
-
-## Installation for Zabbix Agent 1
-- `mkdir -p /etc/zabbix/zabbix_agentd.conf.d/scripts/`
-- `cp zabbix_agentd.conf.d/scripts/asterisk.sh /etc/zabbix/zabbix_agentd.conf.d/scripts/asterisk.sh`
-- `chmod 755 /etc/zabbix/zabbix_agentd.conf.d/scripts/asterisk.sh`
-- `cp zabbix_agentd.conf.d/asterisk.conf /etc/zabbix/zabbix_agentd.conf.d/asterisk.conf`
-- Edit **sudoers** using `visudo` command and add:
-```
-User_Alias ZABBIX = zabbix
-Cmnd_Alias ZABBIX_COMMANDS = /usr/sbin/asterisk
-Defaults:ZABBIX !requiretty
-ZABBIX ALL=(ALL) NOPASSWD: ZABBIX_COMMANDS
-```
-- Restart zabbix-agent: `systemctl restart zabbix-agent `
-- Import `Asterisk-zbx_export_templates.xml` into Zabbix templates panel
-- Assign Zabbix template to the Asterisk Host and wait automatic discovery
-
-## Installation for Zabbix Agent 2
-For **zabbix-agent2** the default configuration dir is `/etc/zabbix/zabbix_agent2.d`. Replace the path in the above commands to install
 
 ## Template Macros available
 - `{$ASTERISK_CALLS_DURATION_WARN}`: Alarm when reaching call duration time (default: 7200 seconds)
