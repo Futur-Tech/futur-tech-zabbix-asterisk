@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>5.0</version>
-    <date>2021-09-17T18:30:39Z</date>
+    <date>2021-09-17T19:03:50Z</date>
     <groups>
         <group>
             <name>Templates/Futur-Tech/Applications</name>
@@ -33,7 +33,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <name>Concurrent Active Calls</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[calls.active]</key>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -51,7 +50,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <name>Longest Call Channel Name</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[calls.longest.channel]</key>
-                    <history>30d</history>
                     <trends>0</trends>
                     <value_type>TEXT</value_type>
                     <applications>
@@ -64,7 +62,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <name>Longest Call Duration</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[calls.longest.duration]</key>
-                    <history>30d</history>
                     <units>uptime</units>
                     <applications>
                         <application>
@@ -76,7 +73,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <name>Processed Calls</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[calls.processed]</key>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -88,7 +84,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[iax2.peers.offline]</key>
                     <delay>5m</delay>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -100,7 +95,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[iax2.peers.online]</key>
                     <delay>5m</delay>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -112,7 +106,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[iax2.trunks.offline]</key>
                     <delay>5m</delay>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -124,7 +117,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[iax2.trunks.online]</key>
                     <delay>5m</delay>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -136,7 +128,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[lastreload]</key>
                     <delay>10m</delay>
-                    <history>30d</history>
                     <units>uptime</units>
                     <applications>
                         <application>
@@ -164,7 +155,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[pjsip.endpoints.offline]</key>
                     <delay>5m</delay>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -176,7 +166,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[pjsip.endpoints.online]</key>
                     <delay>5m</delay>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -188,7 +177,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[pjsip.trunks.offline]</key>
                     <delay>5m</delay>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -200,7 +188,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[pjsip.trunks.online]</key>
                     <delay>5m</delay>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -211,7 +198,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <name>Asterisk Service Status</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[service.status]</key>
-                    <history>30d</history>
                     <trends>0</trends>
                     <value_type>TEXT</value_type>
                     <applications>
@@ -232,7 +218,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[sip.peers.offline]</key>
                     <delay>5m</delay>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -244,7 +229,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[sip.peers.online]</key>
                     <delay>5m</delay>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -256,7 +240,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[sip.trunks.offline]</key>
                     <delay>5m</delay>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -268,7 +251,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[sip.trunks.online]</key>
                     <delay>5m</delay>
-                    <history>30d</history>
                     <applications>
                         <application>
                             <name>Asterisk PBX</name>
@@ -280,7 +262,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[systemuptime]</key>
                     <delay>10m</delay>
-                    <history>30d</history>
                     <units>uptime</units>
                     <applications>
                         <application>
@@ -302,7 +283,6 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[version]</key>
                     <delay>10m</delay>
-                    <history>30d</history>
                     <trends>0</trends>
                     <value_type>TEXT</value_type>
                     <applications>
@@ -324,14 +304,15 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
             <discovery_rules>
                 <discovery_rule>
                     <name>Discovery IAX2 Peers</name>
+                    <type>ZABBIX_ACTIVE</type>
                     <key>discovery.asterisk[discovery.iax2.peers]</key>
                     <delay>30m</delay>
                     <lifetime>7d</lifetime>
                     <item_prototypes>
                         <item_prototype>
                             <name>IAX2 peer {#PEER} latency</name>
+                            <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[iax2.peer.latency,{#PEER}]</key>
-                            <history>7d</history>
                             <units>ms</units>
                             <description>IAX2 Peer latency</description>
                             <application_prototypes>
@@ -350,8 +331,8 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                         </item_prototype>
                         <item_prototype>
                             <name>IAX2 peer {#PEER} status</name>
+                            <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[iax2.peer.status,{#PEER}]</key>
-                            <history>7d</history>
                             <trends>0</trends>
                             <value_type>TEXT</value_type>
                             <description>IAX2 Peer status</description>
@@ -372,12 +353,14 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                 </discovery_rule>
                 <discovery_rule>
                     <name>Discovery IAX2 Trunks</name>
+                    <type>ZABBIX_ACTIVE</type>
                     <key>discovery.asterisk[discovery.iax2.registry]</key>
                     <delay>30m</delay>
                     <lifetime>7d</lifetime>
                     <item_prototypes>
                         <item_prototype>
                             <name>IAX2 Trunk Status for {#USERNAME}@{#HOST}</name>
+                            <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[iax2.registry,{#USERNAME}]</key>
                             <trends>0</trends>
                             <value_type>TEXT</value_type>
@@ -398,14 +381,15 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                 </discovery_rule>
                 <discovery_rule>
                     <name>Discovery PJSIP Endpoints</name>
+                    <type>ZABBIX_ACTIVE</type>
                     <key>discovery.asterisk[discovery.pjsip.endpoints]</key>
                     <delay>30m</delay>
                     <lifetime>7d</lifetime>
                     <item_prototypes>
                         <item_prototype>
                             <name>PJSIP endpoint {#ENDPOINT} latency</name>
+                            <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[pjsip.endpoint.latency,{#ENDPOINT}]</key>
-                            <history>7d</history>
                             <status>DISABLED</status>
                             <units>ms</units>
                             <description>PJSIP Endpoint Status</description>
@@ -425,8 +409,8 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                         </item_prototype>
                         <item_prototype>
                             <name>PJSIP endpoint {#ENDPOINT} status</name>
+                            <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[pjsip.endpoint.status,{#ENDPOINT}]</key>
-                            <history>7d</history>
                             <trends>0</trends>
                             <status>DISABLED</status>
                             <value_type>TEXT</value_type>
@@ -448,12 +432,14 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                 </discovery_rule>
                 <discovery_rule>
                     <name>Discovery PJSIP Trunks</name>
+                    <type>ZABBIX_ACTIVE</type>
                     <key>discovery.asterisk[discovery.pjsip.registry]</key>
                     <delay>30m</delay>
                     <lifetime>7d</lifetime>
                     <item_prototypes>
                         <item_prototype>
                             <name>PJSIP Trunk Status for {#ENDPOINT}/sip:{#USERNAME}@{#HOST}</name>
+                            <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[pjsip.registry,{#ENDPOINT}]</key>
                             <trends>0</trends>
                             <value_type>TEXT</value_type>
@@ -474,14 +460,15 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                 </discovery_rule>
                 <discovery_rule>
                     <name>Discovery SIP Peers</name>
+                    <type>ZABBIX_ACTIVE</type>
                     <key>discovery.asterisk[discovery.sip.peers]</key>
                     <delay>30m</delay>
                     <lifetime>7d</lifetime>
                     <item_prototypes>
                         <item_prototype>
                             <name>SIP peer {#PEER} latency</name>
+                            <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[sip.peer.latency,{#PEER}]</key>
-                            <history>7d</history>
                             <status>DISABLED</status>
                             <units>ms</units>
                             <description>SIP Peer latency</description>
@@ -501,8 +488,8 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                         </item_prototype>
                         <item_prototype>
                             <name>SIP peer {#PEER} status</name>
+                            <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[sip.peer.status,{#PEER}]</key>
-                            <history>7d</history>
                             <trends>0</trends>
                             <status>DISABLED</status>
                             <value_type>TEXT</value_type>
@@ -524,14 +511,15 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                 </discovery_rule>
                 <discovery_rule>
                     <name>Discovery SIP Trunks</name>
+                    <type>ZABBIX_ACTIVE</type>
                     <key>discovery.asterisk[discovery.sip.registry]</key>
                     <delay>30m</delay>
                     <lifetime>7d</lifetime>
                     <item_prototypes>
                         <item_prototype>
                             <name>SIP Trunk Status for {#USERNAME}@{#HOST}</name>
+                            <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[sip.registry,{#USERNAME}]</key>
-                            <history>30d</history>
                             <trends>0</trends>
                             <value_type>TEXT</value_type>
                             <application_prototypes>
