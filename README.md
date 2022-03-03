@@ -10,8 +10,8 @@ Everything is executed by only a few basic deploy scripts.
 
 ```bash
 cd /usr/local/src
-git clone https://github.com/Futur-Tech/futur-tech-zabbix-apt.git
-cd futur-tech-zabbix-apt
+git clone https://github.com/Futur-Tech/futur-tech-zabbix-asterisk.git
+cd futur-tech-zabbix-asterisk
 
 ./deploy.sh 
 # Main deploy script
@@ -54,12 +54,6 @@ Finally import the template XML in Zabbix Server and attach it to your host.
 - `{$ASTERISK_CALLS_ACTIVE_WARN}`: Alarm when reaching max active calls threshold (default: 20 calls)
 - `{$ASTERISK_PEER_LATENCY_WARN}`: Alarm when a peer have high latency (ms)
 
-## Troubleshooting
-If your Zabbix Agent installation doesn't include the ` /etc/zabbix/zabbix_agentd.conf.d/*.conf` directory, add the following lines to `/etc/zabbix/zabbix_agentd.conf` file:
-
-```
-Include=/etc/zabbix/zabbix_agentd.conf.d/*.conf
-```
 ## BUGS
 Counting SIP/PJSIP/IAX2 Trunks is not reliable right now, works only if in the trunk name is alphanumeric (contains letters and number in the name)
 ex. trunk name 511123 is not recognised. trunk name terra-511123 is recognised as trunk
