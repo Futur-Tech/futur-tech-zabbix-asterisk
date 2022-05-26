@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>5.0</version>
-    <date>2021-09-17T19:03:50Z</date>
+    <date>2022-05-26T16:15:47Z</date>
     <groups>
         <group>
             <name>Templates/Futur-Tech/Applications</name>
@@ -553,6 +553,11 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <macro>{$ASTERISK_PEER_LATENCY_WARN}</macro>
                     <value>400</value>
                     <description>Alarm when a peer have high latency (ms)</description>
+                </macro>
+                <macro>
+                    <macro>{$SYSTEMD.NAME.SERVICE.NOT_MATCHES}</macro>
+                    <value>rsync.service|dmraid-activation.service|iscsi.service|systemd-readahead-collect.service|systemd-readahead-replay.service|multipathd.service</value>
+                    <description>Added exceptions to systemd service monitoring</description>
                 </macro>
             </macros>
         </template>
