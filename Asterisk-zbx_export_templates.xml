@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>6.0</version>
-    <date>2023-08-02T12:40:03Z</date>
+    <date>2023-08-02T14:46:07Z</date>
     <groups>
         <group>
             <uuid>7df96b18c230490a9a0a9e2307226338</uuid>
@@ -16,7 +16,7 @@
         <template>
             <uuid>8d5a20893346409aa6c69db7b3d163ae</uuid>
             <template>Asterisk PBX</template>
-            <name>Template Futur-Tech App Asterisk PBX</name>
+            <name>Futur-Tech App Asterisk PBX</name>
             <description>Asterisk PBX monitoring template by InitZero
 
 Adapted by Futur-Tech for Zabbix 6.0 Active Agent
