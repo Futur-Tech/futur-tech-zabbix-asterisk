@@ -1,142 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>5.0</version>
-    <date>2022-05-26T16:15:47Z</date>
+    <version>6.0</version>
+    <date>2023-08-02T12:40:03Z</date>
     <groups>
         <group>
-            <name>Templates/Futur-Tech/Applications</name>
+            <uuid>7df96b18c230490a9a0a9e2307226338</uuid>
+            <name>Templates</name>
+        </group>
+        <group>
+            <uuid>a571c0d144b14fd4a87a9d9b2aa9fcd6</uuid>
+            <name>Templates/Applications</name>
         </group>
     </groups>
     <templates>
         <template>
-            <template>Template Futur-Tech App Asterisk PBX</template>
+            <uuid>8d5a20893346409aa6c69db7b3d163ae</uuid>
+            <template>Asterisk PBX</template>
             <name>Template Futur-Tech App Asterisk PBX</name>
-            <description>Asterisk PBX monitoring template by InitZero&#13;
-https://github.com/ugoviti/zabbix-templates/tree/master/asterisk&#13;
-&#13;
-Version: 1.1.1 - Date: 20210317&#13;
-&#13;
-Adapted by Futur-Tech for Zabbix 5.0 Active Agent&#13;
+            <description>Asterisk PBX monitoring template by InitZero
+
+Adapted by Futur-Tech for Zabbix 6.0 Active Agent
 https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
             <groups>
                 <group>
-                    <name>Templates/Futur-Tech/Applications</name>
+                    <name>Templates</name>
+                </group>
+                <group>
+                    <name>Templates/Applications</name>
                 </group>
             </groups>
-            <applications>
-                <application>
-                    <name>Asterisk PBX</name>
-                </application>
-            </applications>
             <items>
                 <item>
+                    <uuid>bf025fcab1444af7b1f080661d761dc9</uuid>
                     <name>Concurrent Active Calls</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[calls.active]</key>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                     <triggers>
                         <trigger>
-                            <expression>{avg(5m)}&gt;{$ASTERISK_CALLS_ACTIVE_WARN}</expression>
+                            <uuid>30581e5cdbf54cafa310bbc329d60dac</uuid>
+                            <expression>avg(/Asterisk PBX/check.asterisk[calls.active],5m)&gt;{$ASTERISK_CALLS_ACTIVE_WARN}</expression>
                             <name>Many concurrent active calls detected (&gt; {$ASTERISK_CALLS_ACTIVE_WARN})</name>
                             <priority>WARNING</priority>
                         </trigger>
                     </triggers>
                 </item>
                 <item>
+                    <uuid>9eb655443bcb4982b18b1e5798c7232e</uuid>
                     <name>Longest Call Channel Name</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[calls.longest.channel]</key>
+                    <history>30d</history>
                     <trends>0</trends>
                     <value_type>TEXT</value_type>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>ab2d4d79fe394ce985396d0616b7740a</uuid>
                     <name>Longest Call Duration</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[calls.longest.duration]</key>
+                    <history>30d</history>
                     <units>uptime</units>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>1ece68b0c5184f249062a6c5312cf41d</uuid>
                     <name>Processed Calls</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[calls.processed]</key>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>a679613764594a878e92d16d994d5220</uuid>
                     <name>IAX2 Peers Offline</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[iax2.peers.offline]</key>
                     <delay>5m</delay>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>f445d9f8afbc44008fe927fe2ddd9acb</uuid>
                     <name>IAX2 Peers Online</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[iax2.peers.online]</key>
                     <delay>5m</delay>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>28e8f806e9ec425bbdec788f1d2153ef</uuid>
                     <name>IAX2 Trunks Offline</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[iax2.trunks.offline]</key>
                     <delay>5m</delay>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>cf334343efbb42f2ba3a8fbeff4b9eb7</uuid>
                     <name>IAX2 Trunks Online</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[iax2.trunks.online]</key>
                     <delay>5m</delay>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>6d60aee179714443ad1602256f593e5a</uuid>
                     <name>Asterisk Uptime after reload</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[lastreload]</key>
                     <delay>10m</delay>
+                    <history>30d</history>
                     <units>uptime</units>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                     <triggers>
                         <trigger>
-                            <expression>{last()}&lt;10m</expression>
+                            <uuid>a3c3dd02a3254c17a5db73dfdaf3b5b5</uuid>
+                            <expression>last(/Asterisk PBX/check.asterisk[lastreload])&lt;10m</expression>
                             <name>Asterisk service has been reloaded (uptime &lt; 10m)</name>
                             <priority>INFO</priority>
                             <description>A configuration change was made less than 10 minutes ago</description>
@@ -144,133 +174,165 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                             <dependencies>
                                 <dependency>
                                     <name>Asterisk service has been restarted (uptime &lt; 10m)</name>
-                                    <expression>{Template Futur-Tech App Asterisk PBX:check.asterisk[systemuptime].last()}&lt;10m</expression>
+                                    <expression>last(/Asterisk PBX/check.asterisk[systemuptime])&lt;10m</expression>
                                 </dependency>
                             </dependencies>
                         </trigger>
                     </triggers>
                 </item>
                 <item>
+                    <uuid>1703acfdf9dd489ea6368b3ffccae46b</uuid>
                     <name>PJSIP Endpoints Offline</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[pjsip.endpoints.offline]</key>
                     <delay>5m</delay>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>ee5cc45781834e40b857de0023db4b21</uuid>
                     <name>PJSIP Endpoints Online</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[pjsip.endpoints.online]</key>
                     <delay>5m</delay>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>5e0f819f731e4fec9d62deb4fe6882c6</uuid>
                     <name>PJSIP Trunks Offline</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[pjsip.trunks.offline]</key>
                     <delay>5m</delay>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>482d789273824fa0b68a1fb491680e18</uuid>
                     <name>PJSIP Trunks Online</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[pjsip.trunks.online]</key>
                     <delay>5m</delay>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>3ae546c1553b44a48bfc2fb47a015809</uuid>
                     <name>Asterisk Service Status</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[service.status]</key>
+                    <history>30d</history>
                     <trends>0</trends>
                     <value_type>TEXT</value_type>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                     <triggers>
                         <trigger>
-                            <expression>{str(Down,#1)}=1</expression>
+                            <uuid>65a665d3d8bd4b91901599ccd9c146ff</uuid>
+                            <expression>find(/Asterisk PBX/check.asterisk[service.status],#1,&quot;like&quot;,&quot;Down&quot;)=1</expression>
                             <name>Asterisk service is DOWN</name>
                             <priority>DISASTER</priority>
                         </trigger>
                     </triggers>
                 </item>
                 <item>
+                    <uuid>0b294753dcd147f19b8812f0db264ea9</uuid>
                     <name>SIP Peers Offline</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[sip.peers.offline]</key>
                     <delay>5m</delay>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>db52931ed6544240b9f9b50b7009495a</uuid>
                     <name>SIP Peers Online</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[sip.peers.online]</key>
                     <delay>5m</delay>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>193938b27c224612bdaf834a6cc44ae8</uuid>
                     <name>SIP Trunks Offline</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[sip.trunks.offline]</key>
                     <delay>5m</delay>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>df85de2a81cb4283bf95442d2bfe58b1</uuid>
                     <name>SIP Trunks Online</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[sip.trunks.online]</key>
                     <delay>5m</delay>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <history>30d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>7f70e033cb52461f8506feb49cf7fbc0</uuid>
                     <name>Asterisk Uptime</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[systemuptime]</key>
                     <delay>10m</delay>
+                    <history>30d</history>
                     <units>uptime</units>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                     <triggers>
                         <trigger>
-                            <expression>{last()}&lt;10m</expression>
+                            <uuid>1d2476a5b6d7458abcb82ffcbdb9569f</uuid>
+                            <expression>last(/Asterisk PBX/check.asterisk[systemuptime])&lt;10m</expression>
                             <name>Asterisk service has been restarted (uptime &lt; 10m)</name>
                             <priority>INFO</priority>
                             <description>Uptime is less than 10 minutes</description>
@@ -279,20 +341,24 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     </triggers>
                 </item>
                 <item>
+                    <uuid>f6f03db1aff44ccc9a7bfb8855696426</uuid>
                     <name>Asterisk Version</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>check.asterisk[version]</key>
                     <delay>10m</delay>
+                    <history>30d</history>
                     <trends>0</trends>
                     <value_type>TEXT</value_type>
-                    <applications>
-                        <application>
-                            <name>Asterisk PBX</name>
-                        </application>
-                    </applications>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk PBX</value>
+                        </tag>
+                    </tags>
                     <triggers>
                         <trigger>
-                            <expression>{diff()}=1 and {strlen()}&gt;0</expression>
+                            <uuid>77c299d7d5c94778beda827be14aa236</uuid>
+                            <expression>(last(/Asterisk PBX/check.asterisk[version],#1)&lt;&gt;last(/Asterisk PBX/check.asterisk[version],#2))=1 and length(last(/Asterisk PBX/check.asterisk[version]))&gt;0</expression>
                             <name>Asterisk version has changed (new version: {ITEM.VALUE})</name>
                             <priority>INFO</priority>
                             <description>Asterisk version has changed. Ack to close.</description>
@@ -303,6 +369,7 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
             </items>
             <discovery_rules>
                 <discovery_rule>
+                    <uuid>122a1f211ce146ad9b8b6efca3e766fa</uuid>
                     <name>Discovery IAX2 Peers</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>discovery.asterisk[discovery.iax2.peers]</key>
@@ -310,19 +377,23 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <lifetime>7d</lifetime>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>fae137e7d81243abb576976b29f97a22</uuid>
                             <name>IAX2 peer {#PEER} latency</name>
                             <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[iax2.peer.latency,{#PEER}]</key>
+                            <history>7d</history>
                             <units>ms</units>
                             <description>IAX2 Peer latency</description>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>Asterisk PBX IAX2 Peers</name>
-                                </application_prototype>
-                            </application_prototypes>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Asterisk PBX IAX2 Peers</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{avg(5m)}&gt;{$ASTERISK_PEER_LATENCY_WARN}</expression>
+                                    <uuid>dfd8c98265da400ebc1dac7c84184e8b</uuid>
+                                    <expression>avg(/Asterisk PBX/check.asterisk[iax2.peer.latency,{#PEER}],5m)&gt;{$ASTERISK_PEER_LATENCY_WARN}</expression>
                                     <name>IAX2 peer {#PEER} high latency</name>
                                     <priority>WARNING</priority>
                                     <description>Peer high latency detected</description>
@@ -330,20 +401,24 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>82920fa7805c47759f02c43fb395a0fd</uuid>
                             <name>IAX2 peer {#PEER} status</name>
                             <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[iax2.peer.status,{#PEER}]</key>
+                            <history>7d</history>
                             <trends>0</trends>
                             <value_type>TEXT</value_type>
                             <description>IAX2 Peer status</description>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>Asterisk PBX IAX2 Peers</name>
-                                </application_prototype>
-                            </application_prototypes>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Asterisk PBX IAX2 Peers</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{regexp(OK,#3)}=0</expression>
+                                    <uuid>11dc94517484417a8fbdb7545bd4a86b</uuid>
+                                    <expression>find(/Asterisk PBX/check.asterisk[iax2.peer.status,{#PEER}],#3,&quot;regexp&quot;,&quot;OK&quot;)=0</expression>
                                     <name>IAX2 peer {#PEER} is disconnected</name>
                                     <priority>AVERAGE</priority>
                                 </trigger_prototype>
@@ -352,6 +427,7 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
+                    <uuid>0362a15c71554b7a87da0775889a3971</uuid>
                     <name>Discovery IAX2 Trunks</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>discovery.asterisk[discovery.iax2.registry]</key>
@@ -359,19 +435,22 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <lifetime>7d</lifetime>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>6a3fcaef03ff43c29437d1ed0a1e740e</uuid>
                             <name>IAX2 Trunk Status for {#USERNAME}@{#HOST}</name>
                             <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[iax2.registry,{#USERNAME}]</key>
                             <trends>0</trends>
                             <value_type>TEXT</value_type>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>Asterisk PBX IAX2 Trunks</name>
-                                </application_prototype>
-                            </application_prototypes>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Asterisk PBX IAX2 Trunks</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{regexp(Registered,#3)}=0</expression>
+                                    <uuid>501455374b1b4b038fccf26c798ddc93</uuid>
+                                    <expression>find(/Asterisk PBX/check.asterisk[iax2.registry,{#USERNAME}],#3,&quot;regexp&quot;,&quot;Registered&quot;)=0</expression>
                                     <name>IAX2 Trunk not registered {#USERNAME}@{#HOST}</name>
                                     <priority>HIGH</priority>
                                 </trigger_prototype>
@@ -380,6 +459,7 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
+                    <uuid>b7b04a57bba5475aa8370d0232bf7a21</uuid>
                     <name>Discovery PJSIP Endpoints</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>discovery.asterisk[discovery.pjsip.endpoints]</key>
@@ -387,20 +467,24 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <lifetime>7d</lifetime>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>5a7f472129714958a13bf9b6445ef2c0</uuid>
                             <name>PJSIP endpoint {#ENDPOINT} latency</name>
                             <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[pjsip.endpoint.latency,{#ENDPOINT}]</key>
+                            <history>7d</history>
                             <status>DISABLED</status>
                             <units>ms</units>
                             <description>PJSIP Endpoint Status</description>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>Asterisk PBX PJSIP Endpoints</name>
-                                </application_prototype>
-                            </application_prototypes>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Asterisk PBX PJSIP Endpoints</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{avg(5m)}&gt;{$ASTERISK_PEER_LATENCY_WARN}</expression>
+                                    <uuid>aa372042ef7d4499b42784b531687d23</uuid>
+                                    <expression>avg(/Asterisk PBX/check.asterisk[pjsip.endpoint.latency,{#ENDPOINT}],5m)&gt;{$ASTERISK_PEER_LATENCY_WARN}</expression>
                                     <name>PJSIP endpoint {#ENDPOINT} high latency</name>
                                     <priority>WARNING</priority>
                                     <description>Peer high latency detected</description>
@@ -408,21 +492,25 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>a6f6d157248c4974a23207f68b5bf7fd</uuid>
                             <name>PJSIP endpoint {#ENDPOINT} status</name>
                             <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[pjsip.endpoint.status,{#ENDPOINT}]</key>
+                            <history>7d</history>
                             <trends>0</trends>
                             <status>DISABLED</status>
                             <value_type>TEXT</value_type>
                             <description>PJSIP Endpoint Status</description>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>Asterisk PBX PJSIP Endpoints</name>
-                                </application_prototype>
-                            </application_prototypes>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Asterisk PBX PJSIP Endpoints</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{regexp(Avail,#3)}=0</expression>
+                                    <uuid>4423871cedc347c7b45f5d117b7992dc</uuid>
+                                    <expression>find(/Asterisk PBX/check.asterisk[pjsip.endpoint.status,{#ENDPOINT}],#3,&quot;regexp&quot;,&quot;Avail&quot;)=0</expression>
                                     <name>PJSIP endpoint {#ENDPOINT} is disconnected</name>
                                     <priority>AVERAGE</priority>
                                 </trigger_prototype>
@@ -431,6 +519,7 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
+                    <uuid>6a4dc7d5d38f46f886f7b24f3c6fad60</uuid>
                     <name>Discovery PJSIP Trunks</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>discovery.asterisk[discovery.pjsip.registry]</key>
@@ -438,19 +527,22 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <lifetime>7d</lifetime>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>9b6586b11643422db061e46cb7178d22</uuid>
                             <name>PJSIP Trunk Status for {#ENDPOINT}/sip:{#USERNAME}@{#HOST}</name>
                             <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[pjsip.registry,{#ENDPOINT}]</key>
                             <trends>0</trends>
                             <value_type>TEXT</value_type>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>Asterisk PBX PJSIP Trunks</name>
-                                </application_prototype>
-                            </application_prototypes>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Asterisk PBX PJSIP Trunks</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{regexp(Avail,#3)}=0</expression>
+                                    <uuid>4c22c8ad73db4968948d0dd04855b4d0</uuid>
+                                    <expression>find(/Asterisk PBX/check.asterisk[pjsip.registry,{#ENDPOINT}],#3,&quot;regexp&quot;,&quot;Avail&quot;)=0</expression>
                                     <name>PJSIP Trunk not registered {#ENDPOINT}/sip:{#USERNAME}@{#HOST}</name>
                                     <priority>HIGH</priority>
                                 </trigger_prototype>
@@ -459,6 +551,7 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
+                    <uuid>fa20d2ced85d4cc1b3693b5662b0553b</uuid>
                     <name>Discovery SIP Peers</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>discovery.asterisk[discovery.sip.peers]</key>
@@ -466,20 +559,24 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <lifetime>7d</lifetime>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>a9fc732d23b94dac9b2604b16ca60d1e</uuid>
                             <name>SIP peer {#PEER} latency</name>
                             <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[sip.peer.latency,{#PEER}]</key>
+                            <history>7d</history>
                             <status>DISABLED</status>
                             <units>ms</units>
                             <description>SIP Peer latency</description>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>Asterisk PBX SIP Peers</name>
-                                </application_prototype>
-                            </application_prototypes>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Asterisk PBX SIP Peers</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{avg(5m)}&gt;{$ASTERISK_PEER_LATENCY_WARN}</expression>
+                                    <uuid>54a2b535b64249d7a6590eb823b80fdc</uuid>
+                                    <expression>avg(/Asterisk PBX/check.asterisk[sip.peer.latency,{#PEER}],5m)&gt;{$ASTERISK_PEER_LATENCY_WARN}</expression>
                                     <name>SIP peer {#PEER} high latency</name>
                                     <priority>WARNING</priority>
                                     <description>Peer high latency detected</description>
@@ -487,21 +584,25 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>72aaf35022d14dadbb4cbeec76f67edd</uuid>
                             <name>SIP peer {#PEER} status</name>
                             <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[sip.peer.status,{#PEER}]</key>
+                            <history>7d</history>
                             <trends>0</trends>
                             <status>DISABLED</status>
                             <value_type>TEXT</value_type>
                             <description>SIP Peer status</description>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>Asterisk PBX SIP Peers</name>
-                                </application_prototype>
-                            </application_prototypes>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Asterisk PBX SIP Peers</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{regexp(OK,#3)}=0</expression>
+                                    <uuid>57076e09f90a4ba7a71045121118f63e</uuid>
+                                    <expression>find(/Asterisk PBX/check.asterisk[sip.peer.status,{#PEER}],#3,&quot;regexp&quot;,&quot;OK&quot;)=0</expression>
                                     <name>SIP peer {#PEER} is disconnected</name>
                                     <priority>AVERAGE</priority>
                                 </trigger_prototype>
@@ -510,6 +611,7 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
+                    <uuid>6020f4bf93094f7c9c8f3f8ece99abdc</uuid>
                     <name>Discovery SIP Trunks</name>
                     <type>ZABBIX_ACTIVE</type>
                     <key>discovery.asterisk[discovery.sip.registry]</key>
@@ -517,19 +619,23 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <lifetime>7d</lifetime>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>804e1232309740d38c8c1284361e47e5</uuid>
                             <name>SIP Trunk Status for {#USERNAME}@{#HOST}</name>
                             <type>ZABBIX_ACTIVE</type>
                             <key>check.asterisk[sip.registry,{#USERNAME}]</key>
+                            <history>30d</history>
                             <trends>0</trends>
                             <value_type>TEXT</value_type>
-                            <application_prototypes>
-                                <application_prototype>
-                                    <name>Asterisk PBX SIP Trunks</name>
-                                </application_prototype>
-                            </application_prototypes>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Asterisk PBX SIP Trunks</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{regexp(Registered,#3)}=0</expression>
+                                    <uuid>3a97f85219b244d5809c18e3d2e02e59</uuid>
+                                    <expression>find(/Asterisk PBX/check.asterisk[sip.registry,{#USERNAME}],#3,&quot;regexp&quot;,&quot;Registered&quot;)=0</expression>
                                     <name>SIP Trunk not registered {#USERNAME}@{#HOST}</name>
                                     <priority>HIGH</priority>
                                 </trigger_prototype>
@@ -560,52 +666,205 @@ https://github.com/Futur-Tech/futur-tech-zabbix-asterisk</description>
                     <description>Added exceptions to systemd service monitoring</description>
                 </macro>
             </macros>
+            <dashboards>
+                <dashboard>
+                    <uuid>0081fd1d173a4c66a6342738d7215652</uuid>
+                    <name>Asterisk PBX</name>
+                    <pages>
+                        <page>
+                            <widgets>
+                                <widget>
+                                    <type>GRAPH_CLASSIC</type>
+                                    <width>12</width>
+                                    <height>5</height>
+                                    <fields>
+                                        <field>
+                                            <type>GRAPH</type>
+                                            <name>graphid</name>
+                                            <value>
+                                                <host>Asterisk PBX</host>
+                                                <name>Asterisk Concurrent Active Calls</name>
+                                            </value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                                <widget>
+                                    <type>GRAPH_CLASSIC</type>
+                                    <x>12</x>
+                                    <width>12</width>
+                                    <height>5</height>
+                                    <fields>
+                                        <field>
+                                            <type>GRAPH</type>
+                                            <name>graphid</name>
+                                            <value>
+                                                <host>Asterisk PBX</host>
+                                                <name>Asterisk Longest Call Duration</name>
+                                            </value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                                <widget>
+                                    <type>GRAPH_CLASSIC</type>
+                                    <y>5</y>
+                                    <width>12</width>
+                                    <height>6</height>
+                                    <fields>
+                                        <field>
+                                            <type>GRAPH</type>
+                                            <name>graphid</name>
+                                            <value>
+                                                <host>Asterisk PBX</host>
+                                                <name>Asterisk Peers Status</name>
+                                            </value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                                <widget>
+                                    <type>GRAPH_CLASSIC</type>
+                                    <x>12</x>
+                                    <y>5</y>
+                                    <width>12</width>
+                                    <height>6</height>
+                                    <fields>
+                                        <field>
+                                            <type>GRAPH</type>
+                                            <name>graphid</name>
+                                            <value>
+                                                <host>Asterisk PBX</host>
+                                                <name>Asterisk Trunks Status</name>
+                                            </value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                                <widget>
+                                    <type>PLAIN_TEXT</type>
+                                    <name>Asterisk General Status</name>
+                                    <y>11</y>
+                                    <width>12</width>
+                                    <height>5</height>
+                                    <fields>
+                                        <field>
+                                            <type>ITEM</type>
+                                            <name>itemids</name>
+                                            <value>
+                                                <host>Asterisk PBX</host>
+                                                <key>check.asterisk[service.status]</key>
+                                            </value>
+                                        </field>
+                                        <field>
+                                            <type>ITEM</type>
+                                            <name>itemids</name>
+                                            <value>
+                                                <host>Asterisk PBX</host>
+                                                <key>check.asterisk[systemuptime]</key>
+                                            </value>
+                                        </field>
+                                        <field>
+                                            <type>ITEM</type>
+                                            <name>itemids</name>
+                                            <value>
+                                                <host>Asterisk PBX</host>
+                                                <key>check.asterisk[lastreload]</key>
+                                            </value>
+                                        </field>
+                                        <field>
+                                            <type>ITEM</type>
+                                            <name>itemids</name>
+                                            <value>
+                                                <host>Asterisk PBX</host>
+                                                <key>check.asterisk[version]</key>
+                                            </value>
+                                        </field>
+                                        <field>
+                                            <type>ITEM</type>
+                                            <name>itemids</name>
+                                            <value>
+                                                <host>Asterisk PBX</host>
+                                                <key>check.asterisk[calls.active]</key>
+                                            </value>
+                                        </field>
+                                        <field>
+                                            <type>ITEM</type>
+                                            <name>itemids</name>
+                                            <value>
+                                                <host>Asterisk PBX</host>
+                                                <key>check.asterisk[calls.longest.channel]</key>
+                                            </value>
+                                        </field>
+                                        <field>
+                                            <type>ITEM</type>
+                                            <name>itemids</name>
+                                            <value>
+                                                <host>Asterisk PBX</host>
+                                                <key>check.asterisk[calls.longest.duration]</key>
+                                            </value>
+                                        </field>
+                                        <field>
+                                            <type>ITEM</type>
+                                            <name>itemids</name>
+                                            <value>
+                                                <host>Asterisk PBX</host>
+                                                <key>check.asterisk[calls.processed]</key>
+                                            </value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                            </widgets>
+                        </page>
+                    </pages>
+                </dashboard>
+            </dashboards>
         </template>
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template Futur-Tech App Asterisk PBX:check.asterisk[calls.longest.duration].last()}&gt;{$ASTERISK_CALLS_DURATION_WARN}
+            <uuid>d9dfce3cc4df4772a60b84b8d9c8204a</uuid>
+            <expression>last(/Asterisk PBX/check.asterisk[calls.longest.duration])&gt;{$ASTERISK_CALLS_DURATION_WARN}
 and
-{Template Futur-Tech App Asterisk PBX:check.asterisk[calls.longest.channel].strlen(#3)}&gt;1</expression>
+length(last(/Asterisk PBX/check.asterisk[calls.longest.channel],#3))&gt;1</expression>
             <name>Long call duration detected (duration &gt; {$ASTERISK_CALLS_DURATION_WARN}s): {ITEM.VALUE2}</name>
             <priority>WARNING</priority>
         </trigger>
     </triggers>
     <graphs>
         <graph>
+            <uuid>a8842b9a4dce49ada2ff232714ee120b</uuid>
             <name>Asterisk Concurrent Active Calls</name>
             <graph_items>
                 <graph_item>
                     <sortorder>1</sortorder>
                     <color>199C0D</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[calls.active]</key>
                     </item>
                 </graph_item>
             </graph_items>
         </graph>
         <graph>
+            <uuid>4df82b67faf941eaa2635d6ca35c7f7f</uuid>
             <name>Asterisk Longest Call Duration</name>
             <graph_items>
                 <graph_item>
                     <sortorder>1</sortorder>
                     <color>199C0D</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[calls.longest.duration]</key>
                     </item>
                 </graph_item>
             </graph_items>
         </graph>
         <graph>
+            <uuid>26de1e2401ae42a4bc51c53257adafc5</uuid>
             <name>Asterisk Peers Status</name>
             <graph_items>
                 <graph_item>
                     <sortorder>1</sortorder>
                     <color>00FF00</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[sip.peers.online]</key>
                     </item>
                 </graph_item>
@@ -614,7 +873,7 @@ and
                     <drawtype>DASHED_LINE</drawtype>
                     <color>FF0000</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[sip.peers.offline]</key>
                     </item>
                 </graph_item>
@@ -622,7 +881,7 @@ and
                     <sortorder>3</sortorder>
                     <color>03A9F4</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[pjsip.endpoints.online]</key>
                     </item>
                 </graph_item>
@@ -631,7 +890,7 @@ and
                     <drawtype>DASHED_LINE</drawtype>
                     <color>7E57C2</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[pjsip.endpoints.offline]</key>
                     </item>
                 </graph_item>
@@ -639,7 +898,7 @@ and
                     <sortorder>5</sortorder>
                     <color>FFEB3B</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[iax2.peers.online]</key>
                     </item>
                 </graph_item>
@@ -648,20 +907,21 @@ and
                     <drawtype>DASHED_LINE</drawtype>
                     <color>F4511E</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[iax2.peers.offline]</key>
                     </item>
                 </graph_item>
             </graph_items>
         </graph>
         <graph>
+            <uuid>a62373d475db41fbb8094a96ab431777</uuid>
             <name>Asterisk Trunks Status</name>
             <graph_items>
                 <graph_item>
                     <sortorder>1</sortorder>
                     <color>00FF00</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[sip.trunks.online]</key>
                     </item>
                 </graph_item>
@@ -670,7 +930,7 @@ and
                     <drawtype>DASHED_LINE</drawtype>
                     <color>FF0000</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[sip.trunks.offline]</key>
                     </item>
                 </graph_item>
@@ -678,7 +938,7 @@ and
                     <sortorder>3</sortorder>
                     <color>03A9F4</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[pjsip.trunks.online]</key>
                     </item>
                 </graph_item>
@@ -687,7 +947,7 @@ and
                     <drawtype>DASHED_LINE</drawtype>
                     <color>F4511E</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[pjsip.trunks.offline]</key>
                     </item>
                 </graph_item>
@@ -695,7 +955,7 @@ and
                     <sortorder>5</sortorder>
                     <color>FFEB3B</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[iax2.trunks.online]</key>
                     </item>
                 </graph_item>
@@ -704,7 +964,7 @@ and
                     <drawtype>DASHED_LINE</drawtype>
                     <color>9C27B0</color>
                     <item>
-                        <host>Template Futur-Tech App Asterisk PBX</host>
+                        <host>Asterisk PBX</host>
                         <key>check.asterisk[iax2.trunks.offline]</key>
                     </item>
                 </graph_item>
