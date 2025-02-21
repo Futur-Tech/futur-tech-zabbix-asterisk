@@ -338,4 +338,5 @@ pjsip.trunks.offline() {
 
 # execute the passed command
 #set -x
+cd / # Move to / in order to avoid the error "Unable to access the running directory (Permission denied)."
 $cmd $@
