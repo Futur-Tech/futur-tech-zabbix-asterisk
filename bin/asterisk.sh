@@ -61,11 +61,11 @@ asteriskCmd() {
     [ ! -e "$asteriskCacheDir" ] && install -m 750 -d "$asteriskCacheDir"
     [ ! -e "$asteriskCacheFile" ] && touch "$asteriskCacheFile"
     if [ -z "$(cat "$asteriskCacheFile")" ] || [ "$(($(date +"%s") - $(stat -c "%Y" $asteriskCacheFile)))" -gt "$asteriskCacheTime" ]; then
-      $sudo asterisk -rx "$asteriskCmd" >"$asteriskCacheFile"
+      $sudo asterisk -rx "$asteriskCmd" 2>/dev/null >"$asteriskCacheFile"
     fi
     cat "$asteriskCacheFile"
   else
-    $sudo asterisk -rx "$asteriskCmd"
+    $sudo asterisk -rx "$asteriskCmd" 2>/dev/null
   fi
 }
 
