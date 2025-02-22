@@ -1,6 +1,6 @@
 zabbix_export:
   version: '6.0'
-  date: '2023-11-01T11:26:51Z'
+  date: '2025-02-22T10:38:05Z'
   groups:
     - uuid: 7df96b18c230490a9a0a9e2307226338
       name: Templates
@@ -20,10 +20,9 @@ zabbix_export:
         - name: Templates/Applications
       items:
         - uuid: bf025fcab1444af7b1f080661d761dc9
-          name: 'Concurrent Active Calls'
+          name: 'Asterisk: Concurrent Active Calls'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[calls.active]'
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -33,74 +32,66 @@ zabbix_export:
               name: 'Many concurrent active calls detected (> {$ASTERISK_CALLS_ACTIVE_WARN})'
               priority: WARNING
         - uuid: 9eb655443bcb4982b18b1e5798c7232e
-          name: 'Longest Call Channel Name'
+          name: 'Asterisk: Longest Call Channel Name'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[calls.longest.channel]'
-          history: 30d
           trends: '0'
           value_type: TEXT
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: ab2d4d79fe394ce985396d0616b7740a
-          name: 'Longest Call Duration'
+          name: 'Asterisk: Longest Call Duration'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[calls.longest.duration]'
-          history: 30d
           units: uptime
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: 1ece68b0c5184f249062a6c5312cf41d
-          name: 'Processed Calls'
+          name: 'Asterisk: Processed Calls'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[calls.processed]'
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: a679613764594a878e92d16d994d5220
-          name: 'IAX2 Peers Offline'
+          name: 'Asterisk: IAX2 Peers Offline'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[iax2.peers.offline]'
           delay: 5m
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: f445d9f8afbc44008fe927fe2ddd9acb
-          name: 'IAX2 Peers Online'
+          name: 'Asterisk: IAX2 Peers Online'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[iax2.peers.online]'
           delay: 5m
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: 28e8f806e9ec425bbdec788f1d2153ef
-          name: 'IAX2 Trunks Offline'
+          name: 'Asterisk: IAX2 Trunks Offline'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[iax2.trunks.offline]'
           delay: 5m
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: cf334343efbb42f2ba3a8fbeff4b9eb7
-          name: 'IAX2 Trunks Online'
+          name: 'Asterisk: IAX2 Trunks Online'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[iax2.trunks.online]'
           delay: 5m
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: 6d60aee179714443ad1602256f593e5a
-          name: 'Asterisk Uptime after reload'
+          name: 'Asterisk: Uptime after reload'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[lastreload]'
           delay: 10m
-          history: 30d
           units: uptime
           tags:
             - tag: Application
@@ -116,46 +107,41 @@ zabbix_export:
                 - name: 'Asterisk service has been restarted (uptime < 10m)'
                   expression: 'last(/Asterisk PBX/check.asterisk[systemuptime])<10m'
         - uuid: 1703acfdf9dd489ea6368b3ffccae46b
-          name: 'PJSIP Endpoints Offline'
+          name: 'Asterisk: PJSIP Endpoints Offline'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[pjsip.endpoints.offline]'
           delay: 5m
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: ee5cc45781834e40b857de0023db4b21
-          name: 'PJSIP Endpoints Online'
+          name: 'Asterisk: PJSIP Endpoints Online'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[pjsip.endpoints.online]'
           delay: 5m
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: 5e0f819f731e4fec9d62deb4fe6882c6
-          name: 'PJSIP Trunks Offline'
+          name: 'Asterisk: PJSIP Trunks Offline'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[pjsip.trunks.offline]'
           delay: 5m
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: 482d789273824fa0b68a1fb491680e18
-          name: 'PJSIP Trunks Online'
+          name: 'Asterisk: PJSIP Trunks Online'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[pjsip.trunks.online]'
           delay: 5m
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: 3ae546c1553b44a48bfc2fb47a015809
-          name: 'Asterisk Service Status'
+          name: 'Asterisk: Service Status'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[service.status]'
-          history: 30d
           trends: '0'
           value_type: TEXT
           tags:
@@ -167,47 +153,42 @@ zabbix_export:
               name: 'Asterisk service is DOWN'
               priority: DISASTER
         - uuid: 0b294753dcd147f19b8812f0db264ea9
-          name: 'SIP Peers Offline'
+          name: 'Asterisk: SIP Peers Offline'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[sip.peers.offline]'
           delay: 5m
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: db52931ed6544240b9f9b50b7009495a
-          name: 'SIP Peers Online'
+          name: 'Asterisk: SIP Peers Online'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[sip.peers.online]'
           delay: 5m
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: 193938b27c224612bdaf834a6cc44ae8
-          name: 'SIP Trunks Offline'
+          name: 'Asterisk: SIP Trunks Offline'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[sip.trunks.offline]'
           delay: 5m
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: df85de2a81cb4283bf95442d2bfe58b1
-          name: 'SIP Trunks Online'
+          name: 'Asterisk: SIP Trunks Online'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[sip.trunks.online]'
           delay: 5m
-          history: 30d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
         - uuid: 7f70e033cb52461f8506feb49cf7fbc0
-          name: 'Asterisk Uptime'
+          name: 'Asterisk: Uptime'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[systemuptime]'
           delay: 10m
-          history: 30d
           units: uptime
           tags:
             - tag: Application
@@ -220,11 +201,10 @@ zabbix_export:
               description: 'Uptime is less than 10 minutes'
               manual_close: 'YES'
         - uuid: f6f03db1aff44ccc9a7bfb8855696426
-          name: 'Asterisk Version'
+          name: 'Asterisk: Version'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[version]'
           delay: 10m
-          history: 30d
           trends: '0'
           value_type: TEXT
           tags:
@@ -243,13 +223,13 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'discovery.asterisk[discovery.iax2.peers]'
           delay: 30m
-          lifetime: 7d
+          lifetime: 28d
           item_prototypes:
             - uuid: fae137e7d81243abb576976b29f97a22
-              name: 'IAX2 peer {#PEER} latency'
+              name: 'Asterisk: IAX2 peer {#PEER} latency'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[iax2.peer.latency,{#PEER}]'
-              history: 7d
+              delay: 3m
               units: ms
               description: 'IAX2 Peer latency'
               tags:
@@ -257,7 +237,7 @@ zabbix_export:
                   value: 'Asterisk PBX IAX2 Peers'
               trigger_prototypes:
                 - uuid: dfd8c98265da400ebc1dac7c84184e8b
-                  expression: 'avg(/Asterisk PBX/check.asterisk[iax2.peer.latency,{#PEER}],5m)>{$ASTERISK_PEER_LATENCY_WARN}'
+                  expression: 'avg(/Asterisk PBX/check.asterisk[iax2.peer.latency,{#PEER}],15m)>{$ASTERISK_PEER_LATENCY_WARN}'
                   name: 'IAX2 peer {#PEER} high latency'
                   priority: WARNING
                   description: 'Peer high latency detected'
@@ -269,10 +249,10 @@ zabbix_export:
                         find(/Asterisk PBX/check.asterisk[iax2.peer.status,{#PEER}],#3,"regexp","OK")=0
                         and {$ASTERISK_IMPORTANT_PEER:"{#PEER}"}=1
             - uuid: 82920fa7805c47759f02c43fb395a0fd
-              name: 'IAX2 peer {#PEER} status'
+              name: 'Asterisk: IAX2 peer {#PEER} status'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[iax2.peer.status,{#PEER}]'
-              history: 7d
+              delay: 3m
               trends: '0'
               value_type: TEXT
               description: 'IAX2 Peer status'
@@ -300,10 +280,10 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'discovery.asterisk[discovery.iax2.registry]'
           delay: 30m
-          lifetime: 7d
+          lifetime: 28d
           item_prototypes:
             - uuid: 6a3fcaef03ff43c29437d1ed0a1e740e
-              name: 'IAX2 Trunk Status for {#USERNAME}@{#HOST}'
+              name: 'Asterisk: IAX2 Trunk Status for {#USERNAME}@{#HOST}'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[iax2.registry,{#USERNAME}]'
               trends: '0'
@@ -321,14 +301,13 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'discovery.asterisk[discovery.pjsip.endpoints]'
           delay: 30m
-          lifetime: 7d
+          lifetime: 28d
           item_prototypes:
             - uuid: 5a7f472129714958a13bf9b6445ef2c0
-              name: 'PJSIP endpoint {#ENDPOINT} latency'
+              name: 'Asterisk: PJSIP endpoint {#ENDPOINT} latency'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[pjsip.endpoint.latency,{#ENDPOINT}]'
-              history: 7d
-              status: DISABLED
+              delay: 3m
               units: ms
               description: 'PJSIP Endpoint Status'
               tags:
@@ -336,7 +315,7 @@ zabbix_export:
                   value: 'Asterisk PBX PJSIP Endpoints'
               trigger_prototypes:
                 - uuid: aa372042ef7d4499b42784b531687d23
-                  expression: 'avg(/Asterisk PBX/check.asterisk[pjsip.endpoint.latency,{#ENDPOINT}],5m)>{$ASTERISK_PEER_LATENCY_WARN}'
+                  expression: 'avg(/Asterisk PBX/check.asterisk[pjsip.endpoint.latency,{#ENDPOINT}],15m)>{$ASTERISK_PEER_LATENCY_WARN}'
                   name: 'PJSIP endpoint {#ENDPOINT} high latency'
                   priority: WARNING
                   description: 'Peer high latency detected'
@@ -348,12 +327,11 @@ zabbix_export:
                     - name: 'PJSIP endpoint {#ENDPOINT} is disconnected'
                       expression: 'find(/Asterisk PBX/check.asterisk[pjsip.endpoint.status,{#ENDPOINT}],#3,"regexp","Avail")=0'
             - uuid: a6f6d157248c4974a23207f68b5bf7fd
-              name: 'PJSIP endpoint {#ENDPOINT} status'
+              name: 'Asterisk: PJSIP endpoint {#ENDPOINT} status'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[pjsip.endpoint.status,{#ENDPOINT}]'
-              history: 7d
+              delay: 3m
               trends: '0'
-              status: DISABLED
               value_type: TEXT
               description: 'PJSIP Endpoint Status'
               tags:
@@ -380,10 +358,10 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'discovery.asterisk[discovery.pjsip.registry]'
           delay: 30m
-          lifetime: 7d
+          lifetime: 28d
           item_prototypes:
             - uuid: 9b6586b11643422db061e46cb7178d22
-              name: 'PJSIP Trunk Status for {#ENDPOINT}/sip:{#USERNAME}@{#HOST}'
+              name: 'Asterisk: PJSIP Trunk Status for {#ENDPOINT}/sip:{#USERNAME}@{#HOST}'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[pjsip.registry,{#ENDPOINT}]'
               trends: '0'
@@ -401,14 +379,13 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'discovery.asterisk[discovery.sip.peers]'
           delay: 30m
-          lifetime: 7d
+          lifetime: 28d
           item_prototypes:
             - uuid: a9fc732d23b94dac9b2604b16ca60d1e
-              name: 'SIP peer {#PEER} latency'
+              name: 'Asterisk: SIP peer {#PEER} latency'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[sip.peer.latency,{#PEER}]'
-              history: 7d
-              status: DISABLED
+              delay: 3m
               units: ms
               description: 'SIP Peer latency'
               tags:
@@ -416,7 +393,7 @@ zabbix_export:
                   value: 'Asterisk PBX SIP Peers'
               trigger_prototypes:
                 - uuid: 54a2b535b64249d7a6590eb823b80fdc
-                  expression: 'avg(/Asterisk PBX/check.asterisk[sip.peer.latency,{#PEER}],5m)>{$ASTERISK_PEER_LATENCY_WARN}'
+                  expression: 'avg(/Asterisk PBX/check.asterisk[sip.peer.latency,{#PEER}],15m)>{$ASTERISK_PEER_LATENCY_WARN}'
                   name: 'SIP peer {#PEER} high latency'
                   priority: WARNING
                   description: 'Peer high latency detected'
@@ -428,12 +405,11 @@ zabbix_export:
                     - name: 'SIP peer {#PEER} is disconnected'
                       expression: 'find(/Asterisk PBX/check.asterisk[sip.peer.status,{#PEER}],#3,"regexp","OK")=0'
             - uuid: 72aaf35022d14dadbb4cbeec76f67edd
-              name: 'SIP peer {#PEER} status'
+              name: 'Asterisk: SIP peer {#PEER} status'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[sip.peer.status,{#PEER}]'
-              history: 7d
+              delay: 3m
               trends: '0'
-              status: DISABLED
               value_type: TEXT
               description: 'SIP Peer status'
               tags:
@@ -460,13 +436,12 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'discovery.asterisk[discovery.sip.registry]'
           delay: 30m
-          lifetime: 7d
+          lifetime: 28d
           item_prototypes:
             - uuid: 804e1232309740d38c8c1284361e47e5
-              name: 'SIP Trunk Status for {#USERNAME}@{#HOST}'
+              name: 'Asterisk: SIP Trunk Status for {#USERNAME}@{#HOST}'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[sip.registry,{#USERNAME}]'
-              history: 30d
               trends: '0'
               value_type: TEXT
               tags:
