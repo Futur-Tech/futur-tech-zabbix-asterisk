@@ -1,6 +1,6 @@
 zabbix_export:
   version: '6.0'
-  date: '2025-02-22T10:38:05Z'
+  date: '2025-02-25T11:29:28Z'
   groups:
     - uuid: 7df96b18c230490a9a0a9e2307226338
       name: Templates
@@ -471,7 +471,7 @@ zabbix_export:
           value: '400'
           description: 'Alarm when a peer have high latency (ms)'
         - macro: '{$SYSTEMD.NAME.SERVICE.NOT_MATCHES}'
-          value: rsync.service|dmraid-activation.service|iscsi.service|systemd-readahead-collect.service|systemd-readahead-replay.service|multipathd.service
+          value: rsync.service|e2scrub_reap.service|systemd-pstore.service|dmraid-activation.service|iscsi.service|systemd-readahead-collect.service|systemd-readahead-replay.service|multipathd.service
           description: 'Added exceptions to systemd service monitoring'
       dashboards:
         - uuid: 0081fd1d173a4c66a6342738d7215652
