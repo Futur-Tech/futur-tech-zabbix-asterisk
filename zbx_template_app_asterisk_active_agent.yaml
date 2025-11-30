@@ -1,7 +1,6 @@
 zabbix_export:
-  version: '6.0'
-  date: '2025-02-25T11:29:28Z'
-  groups:
+  version: '7.0'
+  template_groups:
     - uuid: 7df96b18c230490a9a0a9e2307226338
       name: Templates
     - uuid: a571c0d144b14fd4a87a9d9b2aa9fcd6
@@ -13,7 +12,7 @@ zabbix_export:
       description: |
         Asterisk PBX monitoring template by InitZero
         
-        Adapted by Futur-Tech for Zabbix 6.0 Active Agent
+        Adapted by Futur-Tech for Zabbix 7.0 Active Agent
         https://github.com/Futur-Tech/futur-tech-zabbix-asterisk
       groups:
         - name: Templates
@@ -23,6 +22,7 @@ zabbix_export:
           name: 'Asterisk: Concurrent Active Calls'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[calls.active]'
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -35,8 +35,9 @@ zabbix_export:
           name: 'Asterisk: Longest Call Channel Name'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[calls.longest.channel]'
-          trends: '0'
+          history: 90d
           value_type: TEXT
+          trends: '0'
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -44,6 +45,7 @@ zabbix_export:
           name: 'Asterisk: Longest Call Duration'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[calls.longest.duration]'
+          history: 90d
           units: uptime
           tags:
             - tag: Application
@@ -52,6 +54,7 @@ zabbix_export:
           name: 'Asterisk: Processed Calls'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[calls.processed]'
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -60,6 +63,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[iax2.peers.offline]'
           delay: 5m
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -68,6 +72,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[iax2.peers.online]'
           delay: 5m
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -76,6 +81,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[iax2.trunks.offline]'
           delay: 5m
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -84,6 +90,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[iax2.trunks.online]'
           delay: 5m
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -92,6 +99,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[lastreload]'
           delay: 10m
+          history: 90d
           units: uptime
           tags:
             - tag: Application
@@ -111,6 +119,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[pjsip.endpoints.offline]'
           delay: 5m
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -119,6 +128,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[pjsip.endpoints.online]'
           delay: 5m
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -127,6 +137,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[pjsip.trunks.offline]'
           delay: 5m
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -135,6 +146,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[pjsip.trunks.online]'
           delay: 5m
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -142,8 +154,9 @@ zabbix_export:
           name: 'Asterisk: Service Status'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[service.status]'
-          trends: '0'
+          history: 90d
           value_type: TEXT
+          trends: '0'
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -157,6 +170,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[sip.peers.offline]'
           delay: 5m
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -165,6 +179,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[sip.peers.online]'
           delay: 5m
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -173,6 +188,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[sip.trunks.offline]'
           delay: 5m
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -181,6 +197,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[sip.trunks.online]'
           delay: 5m
+          history: 90d
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -189,6 +206,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[systemuptime]'
           delay: 10m
+          history: 90d
           units: uptime
           tags:
             - tag: Application
@@ -204,9 +222,10 @@ zabbix_export:
           name: 'Asterisk: Version'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[version]'
-          delay: 10m
-          trends: '0'
+          delay: 1h
+          history: 90d
           value_type: TEXT
+          trends: '0'
           tags:
             - tag: Application
               value: 'Asterisk PBX'
@@ -217,6 +236,37 @@ zabbix_export:
               priority: INFO
               description: 'Asterisk version has changed. Ack to close.'
               manual_close: 'YES'
+        - uuid: 6e651e58c3b14fc9a07c3661823342ae
+          name: 'Groundwire: Acrobits Push servers IP list'
+          type: ZABBIX_ACTIVE
+          key: ip.sipis.acrobits
+          delay: 30m
+          history: 90d
+          value_type: TEXT
+          trends: '0'
+          preprocessing:
+            - type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - 1d
+          tags:
+            - tag: component
+              value: application
+          triggers:
+            - uuid: 8b1ae90f808d4b7a9c2de7d8d8f2e3bc
+              expression: 'change(/Asterisk PBX/ip.sipis.acrobits)=1'
+              recovery_mode: NONE
+              name: 'Groundwire: Acrobits Push servers IP list has changed'
+              priority: WARNING
+              description: |
+                Need to be closed manually.
+                
+                To use Push Notification with the Groundwire App, ensure that your routers and firewalls permit traffic from the specified IP addresses.
+                
+                https://faq.acrobits.net/ip-sipis
+              manual_close: 'YES'
+              tags:
+                - tag: scope
+                  value: availability
       discovery_rules:
         - uuid: 122a1f211ce146ad9b8b6efca3e766fa
           name: 'Discovery IAX2 Peers'
@@ -224,12 +274,14 @@ zabbix_export:
           key: 'discovery.asterisk[discovery.iax2.peers]'
           delay: 30m
           lifetime: 28d
+          enabled_lifetime_type: DISABLE_NEVER
           item_prototypes:
             - uuid: fae137e7d81243abb576976b29f97a22
               name: 'Asterisk: IAX2 peer {#PEER} latency'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[iax2.peer.latency,{#PEER}]'
               delay: 3m
+              history: 90d
               units: ms
               description: 'IAX2 Peer latency'
               tags:
@@ -253,8 +305,9 @@ zabbix_export:
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[iax2.peer.status,{#PEER}]'
               delay: 3m
-              trends: '0'
+              history: 90d
               value_type: TEXT
+              trends: '0'
               description: 'IAX2 Peer status'
               tags:
                 - tag: Application
@@ -281,13 +334,15 @@ zabbix_export:
           key: 'discovery.asterisk[discovery.iax2.registry]'
           delay: 30m
           lifetime: 28d
+          enabled_lifetime_type: DISABLE_NEVER
           item_prototypes:
             - uuid: 6a3fcaef03ff43c29437d1ed0a1e740e
               name: 'Asterisk: IAX2 Trunk Status for {#USERNAME}@{#HOST}'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[iax2.registry,{#USERNAME}]'
-              trends: '0'
+              history: 90d
               value_type: TEXT
+              trends: '0'
               tags:
                 - tag: Application
                   value: 'Asterisk PBX IAX2 Trunks'
@@ -302,12 +357,14 @@ zabbix_export:
           key: 'discovery.asterisk[discovery.pjsip.endpoints]'
           delay: 30m
           lifetime: 28d
+          enabled_lifetime_type: DISABLE_NEVER
           item_prototypes:
             - uuid: 5a7f472129714958a13bf9b6445ef2c0
               name: 'Asterisk: PJSIP endpoint {#ENDPOINT} latency'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[pjsip.endpoint.latency,{#ENDPOINT}]'
               delay: 3m
+              history: 90d
               units: ms
               description: 'PJSIP Endpoint Status'
               tags:
@@ -331,8 +388,9 @@ zabbix_export:
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[pjsip.endpoint.status,{#ENDPOINT}]'
               delay: 3m
-              trends: '0'
+              history: 90d
               value_type: TEXT
+              trends: '0'
               description: 'PJSIP Endpoint Status'
               tags:
                 - tag: Application
@@ -359,13 +417,15 @@ zabbix_export:
           key: 'discovery.asterisk[discovery.pjsip.registry]'
           delay: 30m
           lifetime: 28d
+          enabled_lifetime_type: DISABLE_NEVER
           item_prototypes:
             - uuid: 9b6586b11643422db061e46cb7178d22
               name: 'Asterisk: PJSIP Trunk Status for {#ENDPOINT}/sip:{#USERNAME}@{#HOST}'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[pjsip.registry,{#ENDPOINT}]'
-              trends: '0'
+              history: 90d
               value_type: TEXT
+              trends: '0'
               tags:
                 - tag: Application
                   value: 'Asterisk PBX PJSIP Trunks'
@@ -380,12 +440,14 @@ zabbix_export:
           key: 'discovery.asterisk[discovery.sip.peers]'
           delay: 30m
           lifetime: 28d
+          enabled_lifetime_type: DISABLE_NEVER
           item_prototypes:
             - uuid: a9fc732d23b94dac9b2604b16ca60d1e
               name: 'Asterisk: SIP peer {#PEER} latency'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[sip.peer.latency,{#PEER}]'
               delay: 3m
+              history: 90d
               units: ms
               description: 'SIP Peer latency'
               tags:
@@ -409,8 +471,9 @@ zabbix_export:
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[sip.peer.status,{#PEER}]'
               delay: 3m
-              trends: '0'
+              history: 90d
               value_type: TEXT
+              trends: '0'
               description: 'SIP Peer status'
               tags:
                 - tag: Application
@@ -437,13 +500,15 @@ zabbix_export:
           key: 'discovery.asterisk[discovery.sip.registry]'
           delay: 30m
           lifetime: 28d
+          enabled_lifetime_type: DISABLE_NEVER
           item_prototypes:
             - uuid: 804e1232309740d38c8c1284361e47e5
               name: 'Asterisk: SIP Trunk Status for {#USERNAME}@{#HOST}'
               type: ZABBIX_ACTIVE
               key: 'check.asterisk[sip.registry,{#USERNAME}]'
-              trends: '0'
+              history: 90d
               value_type: TEXT
+              trends: '0'
               tags:
                 - tag: Application
                   value: 'Asterisk PBX SIP Trunks'
@@ -478,8 +543,8 @@ zabbix_export:
           name: 'Asterisk PBX'
           pages:
             - widgets:
-                - type: GRAPH_CLASSIC
-                  width: '12'
+                - type: graph
+                  width: '36'
                   height: '5'
                   fields:
                     - type: GRAPH
@@ -487,19 +552,12 @@ zabbix_export:
                       value:
                         host: 'Asterisk PBX'
                         name: 'Asterisk Concurrent Active Calls'
-                - type: GRAPH_CLASSIC
-                  x: '12'
-                  width: '12'
-                  height: '5'
-                  fields:
-                    - type: GRAPH
-                      name: graphid
-                      value:
-                        host: 'Asterisk PBX'
-                        name: 'Asterisk Longest Call Duration'
-                - type: GRAPH_CLASSIC
+                    - type: STRING
+                      name: reference
+                      value: AAABZ
+                - type: graph
                   'y': '5'
-                  width: '12'
+                  width: '36'
                   height: '6'
                   fields:
                     - type: GRAPH
@@ -507,10 +565,117 @@ zabbix_export:
                       value:
                         host: 'Asterisk PBX'
                         name: 'Asterisk Peers Status'
-                - type: GRAPH_CLASSIC
-                  x: '12'
+                    - type: STRING
+                      name: reference
+                      value: AAACB
+                - type: itemhistory
+                  name: 'Asterisk General Status'
+                  'y': '11'
+                  width: '36'
+                  height: '5'
+                  fields:
+                    - type: ITEM
+                      name: columns.0.itemid
+                      value:
+                        host: 'Asterisk PBX'
+                        key: 'check.asterisk[calls.processed]'
+                    - type: STRING
+                      name: columns.0.name
+                      value: 'Asterisk: Processed Calls'
+                    - type: ITEM
+                      name: columns.1.itemid
+                      value:
+                        host: 'Asterisk PBX'
+                        key: 'check.asterisk[service.status]'
+                    - type: INTEGER
+                      name: columns.1.monospace_font
+                      value: '1'
+                    - type: STRING
+                      name: columns.1.name
+                      value: 'Asterisk: Service Status'
+                    - type: ITEM
+                      name: columns.2.itemid
+                      value:
+                        host: 'Asterisk PBX'
+                        key: 'check.asterisk[systemuptime]'
+                    - type: STRING
+                      name: columns.2.name
+                      value: 'Asterisk: Uptime'
+                    - type: ITEM
+                      name: columns.3.itemid
+                      value:
+                        host: 'Asterisk PBX'
+                        key: 'check.asterisk[lastreload]'
+                    - type: STRING
+                      name: columns.3.name
+                      value: 'Asterisk: Uptime after reload'
+                    - type: ITEM
+                      name: columns.4.itemid
+                      value:
+                        host: 'Asterisk PBX'
+                        key: 'check.asterisk[version]'
+                    - type: INTEGER
+                      name: columns.4.monospace_font
+                      value: '1'
+                    - type: STRING
+                      name: columns.4.name
+                      value: 'Asterisk: Version'
+                    - type: ITEM
+                      name: columns.5.itemid
+                      value:
+                        host: 'Asterisk PBX'
+                        key: 'check.asterisk[calls.active]'
+                    - type: STRING
+                      name: columns.5.name
+                      value: 'Asterisk: Concurrent Active Calls'
+                    - type: ITEM
+                      name: columns.6.itemid
+                      value:
+                        host: 'Asterisk PBX'
+                        key: 'check.asterisk[calls.longest.channel]'
+                    - type: INTEGER
+                      name: columns.6.monospace_font
+                      value: '1'
+                    - type: STRING
+                      name: columns.6.name
+                      value: 'Asterisk: Longest Call Channel Name'
+                    - type: ITEM
+                      name: columns.7.itemid
+                      value:
+                        host: 'Asterisk PBX'
+                        key: 'check.asterisk[calls.longest.duration]'
+                    - type: STRING
+                      name: columns.7.name
+                      value: 'Asterisk: Longest Call Duration'
+                    - type: STRING
+                      name: reference
+                      value: AAAEV
+                    - type: INTEGER
+                      name: show_timestamp
+                      value: '1'
+                    - type: STRING
+                      name: time_period.from
+                      value: now-1y
+                    - type: STRING
+                      name: time_period.to
+                      value: now
+                - type: graph
+                  x: '36'
+                  width: '36'
+                  height: '5'
+                  fields:
+                    - type: GRAPH
+                      name: graphid
+                      value:
+                        host: 'Asterisk PBX'
+                        name: 'Asterisk Longest Call Duration'
+                    - type: STRING
+                      name: reference
+                      value: AAACA
+                - type: graph
+                  x: '36'
                   'y': '5'
-                  width: '12'
+                  width: '36'
                   height: '6'
                   fields:
                     - type: GRAPH
@@ -518,52 +683,9 @@ zabbix_export:
                       value:
                         host: 'Asterisk PBX'
                         name: 'Asterisk Trunks Status'
-                - type: PLAIN_TEXT
-                  name: 'Asterisk General Status'
-                  'y': '11'
-                  width: '12'
-                  height: '5'
-                  fields:
-                    - type: ITEM
-                      name: itemids
-                      value:
-                        host: 'Asterisk PBX'
-                        key: 'check.asterisk[service.status]'
-                    - type: ITEM
-                      name: itemids
-                      value:
-                        host: 'Asterisk PBX'
-                        key: 'check.asterisk[systemuptime]'
-                    - type: ITEM
-                      name: itemids
-                      value:
-                        host: 'Asterisk PBX'
-                        key: 'check.asterisk[lastreload]'
-                    - type: ITEM
-                      name: itemids
-                      value:
-                        host: 'Asterisk PBX'
-                        key: 'check.asterisk[version]'
-                    - type: ITEM
-                      name: itemids
-                      value:
-                        host: 'Asterisk PBX'
-                        key: 'check.asterisk[calls.active]'
-                    - type: ITEM
-                      name: itemids
-                      value:
-                        host: 'Asterisk PBX'
-                        key: 'check.asterisk[calls.longest.channel]'
-                    - type: ITEM
-                      name: itemids
-                      value:
-                        host: 'Asterisk PBX'
-                        key: 'check.asterisk[calls.longest.duration]'
-                    - type: ITEM
-                      name: itemids
-                      value:
-                        host: 'Asterisk PBX'
-                        key: 'check.asterisk[calls.processed]'
+                    - type: STRING
+                      name: reference
+                      value: AAACC
   triggers:
     - uuid: d9dfce3cc4df4772a60b84b8d9c8204a
       expression: |
