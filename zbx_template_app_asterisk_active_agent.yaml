@@ -14,6 +14,9 @@ zabbix_export:
         
         Adapted by Futur-Tech for Zabbix 7.0 Active Agent
         https://github.com/Futur-Tech/futur-tech-zabbix-asterisk
+      vendor:
+        name: Futur-Tech
+        version: 7.0-2
       groups:
         - name: Templates
         - name: Templates/Applications
@@ -24,13 +27,16 @@ zabbix_export:
           key: 'check.asterisk[calls.active]'
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: application
           triggers:
             - uuid: 30581e5cdbf54cafa310bbc329d60dac
               expression: 'avg(/Asterisk PBX/check.asterisk[calls.active],5m)>{$ASTERISK_CALLS_ACTIVE_WARN}'
               name: 'Many concurrent active calls detected (> {$ASTERISK_CALLS_ACTIVE_WARN})'
               priority: WARNING
+              tags:
+                - tag: scope
+                  value: capacity
         - uuid: 9eb655443bcb4982b18b1e5798c7232e
           name: 'Asterisk: Longest Call Channel Name'
           type: ZABBIX_ACTIVE
@@ -39,8 +45,8 @@ zabbix_export:
           value_type: TEXT
           trends: '0'
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: application
         - uuid: ab2d4d79fe394ce985396d0616b7740a
           name: 'Asterisk: Longest Call Duration'
           type: ZABBIX_ACTIVE
@@ -48,16 +54,16 @@ zabbix_export:
           history: 90d
           units: uptime
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: application
         - uuid: 1ece68b0c5184f249062a6c5312cf41d
           name: 'Asterisk: Processed Calls'
           type: ZABBIX_ACTIVE
           key: 'check.asterisk[calls.processed]'
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: application
         - uuid: a679613764594a878e92d16d994d5220
           name: 'Asterisk: IAX2 Peers Offline'
           type: ZABBIX_ACTIVE
@@ -65,8 +71,8 @@ zabbix_export:
           delay: 5m
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: network
         - uuid: f445d9f8afbc44008fe927fe2ddd9acb
           name: 'Asterisk: IAX2 Peers Online'
           type: ZABBIX_ACTIVE
@@ -74,8 +80,8 @@ zabbix_export:
           delay: 5m
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: network
         - uuid: 28e8f806e9ec425bbdec788f1d2153ef
           name: 'Asterisk: IAX2 Trunks Offline'
           type: ZABBIX_ACTIVE
@@ -83,8 +89,8 @@ zabbix_export:
           delay: 5m
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: network
         - uuid: cf334343efbb42f2ba3a8fbeff4b9eb7
           name: 'Asterisk: IAX2 Trunks Online'
           type: ZABBIX_ACTIVE
@@ -92,8 +98,8 @@ zabbix_export:
           delay: 5m
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: network
         - uuid: 6d60aee179714443ad1602256f593e5a
           name: 'Asterisk: Uptime after reload'
           type: ZABBIX_ACTIVE
@@ -102,8 +108,8 @@ zabbix_export:
           history: 90d
           units: uptime
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: system
           triggers:
             - uuid: a3c3dd02a3254c17a5db73dfdaf3b5b5
               expression: 'last(/Asterisk PBX/check.asterisk[lastreload])<10m'
@@ -111,6 +117,9 @@ zabbix_export:
               priority: INFO
               description: 'A configuration change was made less than 10 minutes ago'
               manual_close: 'YES'
+              tags:
+                - tag: scope
+                  value: notice
               dependencies:
                 - name: 'Asterisk service has been restarted (uptime < 10m)'
                   expression: 'last(/Asterisk PBX/check.asterisk[systemuptime])<10m'
@@ -121,8 +130,8 @@ zabbix_export:
           delay: 5m
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: network
         - uuid: ee5cc45781834e40b857de0023db4b21
           name: 'Asterisk: PJSIP Endpoints Online'
           type: ZABBIX_ACTIVE
@@ -130,8 +139,8 @@ zabbix_export:
           delay: 5m
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: network
         - uuid: 5e0f819f731e4fec9d62deb4fe6882c6
           name: 'Asterisk: PJSIP Trunks Offline'
           type: ZABBIX_ACTIVE
@@ -139,8 +148,8 @@ zabbix_export:
           delay: 5m
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: network
         - uuid: 482d789273824fa0b68a1fb491680e18
           name: 'Asterisk: PJSIP Trunks Online'
           type: ZABBIX_ACTIVE
@@ -148,8 +157,8 @@ zabbix_export:
           delay: 5m
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: network
         - uuid: 3ae546c1553b44a48bfc2fb47a015809
           name: 'Asterisk: Service Status'
           type: ZABBIX_ACTIVE
@@ -158,13 +167,16 @@ zabbix_export:
           value_type: TEXT
           trends: '0'
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: application
           triggers:
             - uuid: 65a665d3d8bd4b91901599ccd9c146ff
               expression: 'find(/Asterisk PBX/check.asterisk[service.status],#1,"like","Down")=1'
               name: 'Asterisk service is DOWN'
               priority: DISASTER
+              tags:
+                - tag: scope
+                  value: availability
         - uuid: 0b294753dcd147f19b8812f0db264ea9
           name: 'Asterisk: SIP Peers Offline'
           type: ZABBIX_ACTIVE
@@ -172,8 +184,8 @@ zabbix_export:
           delay: 5m
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: network
         - uuid: db52931ed6544240b9f9b50b7009495a
           name: 'Asterisk: SIP Peers Online'
           type: ZABBIX_ACTIVE
@@ -181,8 +193,8 @@ zabbix_export:
           delay: 5m
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: network
         - uuid: 193938b27c224612bdaf834a6cc44ae8
           name: 'Asterisk: SIP Trunks Offline'
           type: ZABBIX_ACTIVE
@@ -190,8 +202,8 @@ zabbix_export:
           delay: 5m
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: network
         - uuid: df85de2a81cb4283bf95442d2bfe58b1
           name: 'Asterisk: SIP Trunks Online'
           type: ZABBIX_ACTIVE
@@ -199,8 +211,8 @@ zabbix_export:
           delay: 5m
           history: 90d
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: network
         - uuid: 7f70e033cb52461f8506feb49cf7fbc0
           name: 'Asterisk: Uptime'
           type: ZABBIX_ACTIVE
@@ -209,8 +221,8 @@ zabbix_export:
           history: 90d
           units: uptime
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: system
           triggers:
             - uuid: 1d2476a5b6d7458abcb82ffcbdb9569f
               expression: 'last(/Asterisk PBX/check.asterisk[systemuptime])<10m'
@@ -218,6 +230,9 @@ zabbix_export:
               priority: INFO
               description: 'Uptime is less than 10 minutes'
               manual_close: 'YES'
+              tags:
+                - tag: scope
+                  value: notice
         - uuid: f6f03db1aff44ccc9a7bfb8855696426
           name: 'Asterisk: Version'
           type: ZABBIX_ACTIVE
@@ -227,8 +242,8 @@ zabbix_export:
           value_type: TEXT
           trends: '0'
           tags:
-            - tag: Application
-              value: 'Asterisk PBX'
+            - tag: component
+              value: application
           triggers:
             - uuid: 77c299d7d5c94778beda827be14aa236
               expression: '(last(/Asterisk PBX/check.asterisk[version],#1)<>last(/Asterisk PBX/check.asterisk[version],#2))=1 and length(last(/Asterisk PBX/check.asterisk[version]))>0'
@@ -236,6 +251,9 @@ zabbix_export:
               priority: INFO
               description: 'Asterisk version has changed. Ack to close.'
               manual_close: 'YES'
+              tags:
+                - tag: scope
+                  value: notice
         - uuid: 6e651e58c3b14fc9a07c3661823342ae
           name: 'Groundwire: Acrobits Push servers IP list'
           type: ZABBIX_ACTIVE
@@ -247,10 +265,14 @@ zabbix_export:
           preprocessing:
             - type: DISCARD_UNCHANGED_HEARTBEAT
               parameters:
-                - 1d
+                - 3h
+            - type: MATCHES_REGEX
+              parameters:
+                - .+
+              error_handler: DISCARD_VALUE
           tags:
             - tag: component
-              value: application
+              value: network
           triggers:
             - uuid: 8b1ae90f808d4b7a9c2de7d8d8f2e3bc
               expression: 'change(/Asterisk PBX/ip.sipis.acrobits)=1'
@@ -266,7 +288,7 @@ zabbix_export:
               manual_close: 'YES'
               tags:
                 - tag: scope
-                  value: availability
+                  value: notice
       discovery_rules:
         - uuid: 122a1f211ce146ad9b8b6efca3e766fa
           name: 'Discovery IAX2 Peers'
@@ -285,13 +307,16 @@ zabbix_export:
               units: ms
               description: 'IAX2 Peer latency'
               tags:
-                - tag: Application
-                  value: 'Asterisk PBX IAX2 Peers'
+                - tag: component
+                  value: network
               trigger_prototypes:
                 - uuid: dfd8c98265da400ebc1dac7c84184e8b
                   expression: 'avg(/Asterisk PBX/check.asterisk[iax2.peer.latency,{#PEER}],15m)>{$ASTERISK_PEER_LATENCY_WARN}'
                   name: 'IAX2 peer {#PEER} high latency'
                   priority: WARNING
+                  tags:
+                    - tag: scope
+                      value: performance
                   description: 'Peer high latency detected'
                   dependencies:
                     - name: 'IAX2 peer {#PEER} is disconnected'
@@ -310,13 +335,16 @@ zabbix_export:
               trends: '0'
               description: 'IAX2 Peer status'
               tags:
-                - tag: Application
-                  value: 'Asterisk PBX IAX2 Peers'
+                - tag: component
+                  value: network
               trigger_prototypes:
                 - uuid: 11dc94517484417a8fbdb7545bd4a86b
                   expression: 'find(/Asterisk PBX/check.asterisk[iax2.peer.status,{#PEER}],#3,"regexp","OK")=0'
                   name: 'IAX2 peer {#PEER} is disconnected'
                   priority: AVERAGE
+                  tags:
+                    - tag: scope
+                      value: availability
                   dependencies:
                     - name: 'Important IAX2 peer {#PEER} is disconnected'
                       expression: |
@@ -328,6 +356,9 @@ zabbix_export:
                     and {$ASTERISK_IMPORTANT_PEER:"{#PEER}"}=1
                   name: 'Important IAX2 peer {#PEER} is disconnected'
                   priority: HIGH
+                  tags:
+                    - tag: scope
+                      value: availability
         - uuid: 0362a15c71554b7a87da0775889a3971
           name: 'Discovery IAX2 Trunks'
           type: ZABBIX_ACTIVE
@@ -344,13 +375,16 @@ zabbix_export:
               value_type: TEXT
               trends: '0'
               tags:
-                - tag: Application
-                  value: 'Asterisk PBX IAX2 Trunks'
+                - tag: component
+                  value: network
               trigger_prototypes:
                 - uuid: 501455374b1b4b038fccf26c798ddc93
                   expression: 'find(/Asterisk PBX/check.asterisk[iax2.registry,{#USERNAME}],#3,"regexp","Registered")=0'
                   name: 'IAX2 Trunk not registered {#USERNAME}@{#HOST}'
                   priority: HIGH
+                  tags:
+                    - tag: scope
+                      value: availability
         - uuid: b7b04a57bba5475aa8370d0232bf7a21
           name: 'Discovery PJSIP Endpoints'
           type: ZABBIX_ACTIVE
@@ -368,13 +402,16 @@ zabbix_export:
               units: ms
               description: 'PJSIP Endpoint Status'
               tags:
-                - tag: Application
-                  value: 'Asterisk PBX PJSIP Endpoints'
+                - tag: component
+                  value: network
               trigger_prototypes:
                 - uuid: aa372042ef7d4499b42784b531687d23
                   expression: 'avg(/Asterisk PBX/check.asterisk[pjsip.endpoint.latency,{#ENDPOINT}],15m)>{$ASTERISK_PEER_LATENCY_WARN}'
                   name: 'PJSIP endpoint {#ENDPOINT} high latency'
                   priority: WARNING
+                  tags:
+                    - tag: scope
+                      value: performance
                   description: 'Peer high latency detected'
                   dependencies:
                     - name: 'Important PJSIP endpoint {#ENDPOINT} is disconnected'
@@ -393,8 +430,8 @@ zabbix_export:
               trends: '0'
               description: 'PJSIP Endpoint Status'
               tags:
-                - tag: Application
-                  value: 'Asterisk PBX PJSIP Endpoints'
+                - tag: component
+                  value: network
               trigger_prototypes:
                 - uuid: 3b16142f41b041259a3b96367bd54962
                   expression: |
@@ -402,10 +439,16 @@ zabbix_export:
                     and {$ASTERISK_IMPORTANT_PEER:"{#ENDPOINT}"}=1
                   name: 'Important PJSIP endpoint {#ENDPOINT} is disconnected'
                   priority: HIGH
+                  tags:
+                    - tag: scope
+                      value: availability
                 - uuid: 4423871cedc347c7b45f5d117b7992dc
                   expression: 'find(/Asterisk PBX/check.asterisk[pjsip.endpoint.status,{#ENDPOINT}],#3,"regexp","Avail")=0'
                   name: 'PJSIP endpoint {#ENDPOINT} is disconnected'
                   priority: AVERAGE
+                  tags:
+                    - tag: scope
+                      value: availability
                   dependencies:
                     - name: 'Important PJSIP endpoint {#ENDPOINT} is disconnected'
                       expression: |
@@ -427,13 +470,16 @@ zabbix_export:
               value_type: TEXT
               trends: '0'
               tags:
-                - tag: Application
-                  value: 'Asterisk PBX PJSIP Trunks'
+                - tag: component
+                  value: network
               trigger_prototypes:
                 - uuid: 4c22c8ad73db4968948d0dd04855b4d0
                   expression: 'find(/Asterisk PBX/check.asterisk[pjsip.registry,{#ENDPOINT}],#3,"regexp","Avail")=0'
                   name: 'PJSIP Trunk not registered {#ENDPOINT}/sip:{#USERNAME}@{#HOST}'
                   priority: HIGH
+                  tags:
+                    - tag: scope
+                      value: availability
         - uuid: fa20d2ced85d4cc1b3693b5662b0553b
           name: 'Discovery SIP Peers'
           type: ZABBIX_ACTIVE
@@ -451,13 +497,16 @@ zabbix_export:
               units: ms
               description: 'SIP Peer latency'
               tags:
-                - tag: Application
-                  value: 'Asterisk PBX SIP Peers'
+                - tag: component
+                  value: network
               trigger_prototypes:
                 - uuid: 54a2b535b64249d7a6590eb823b80fdc
                   expression: 'avg(/Asterisk PBX/check.asterisk[sip.peer.latency,{#PEER}],15m)>{$ASTERISK_PEER_LATENCY_WARN}'
                   name: 'SIP peer {#PEER} high latency'
                   priority: WARNING
+                  tags:
+                    - tag: scope
+                      value: performance
                   description: 'Peer high latency detected'
                   dependencies:
                     - name: 'Important SIP peer {#PEER} is disconnected'
@@ -476,8 +525,8 @@ zabbix_export:
               trends: '0'
               description: 'SIP Peer status'
               tags:
-                - tag: Application
-                  value: 'Asterisk PBX SIP Peers'
+                - tag: component
+                  value: network
               trigger_prototypes:
                 - uuid: 3e4aaa984e1f42e7966f607889c06f3a
                   expression: |
@@ -485,10 +534,16 @@ zabbix_export:
                     and {$ASTERISK_IMPORTANT_PEER:"{#PEER}"}=1
                   name: 'Important SIP peer {#PEER} is disconnected'
                   priority: HIGH
+                  tags:
+                    - tag: scope
+                      value: availability
                 - uuid: 57076e09f90a4ba7a71045121118f63e
                   expression: 'find(/Asterisk PBX/check.asterisk[sip.peer.status,{#PEER}],#3,"regexp","OK")=0'
                   name: 'SIP peer {#PEER} is disconnected'
                   priority: AVERAGE
+                  tags:
+                    - tag: scope
+                      value: availability
                   dependencies:
                     - name: 'Important SIP peer {#PEER} is disconnected'
                       expression: |
@@ -510,15 +565,23 @@ zabbix_export:
               value_type: TEXT
               trends: '0'
               tags:
-                - tag: Application
-                  value: 'Asterisk PBX SIP Trunks'
+                - tag: component
+                  value: network
               trigger_prototypes:
                 - uuid: 3a97f85219b244d5809c18e3d2e02e59
                   expression: 'find(/Asterisk PBX/check.asterisk[sip.registry,{#USERNAME}],#3,"regexp","Registered")=0'
                   name: 'SIP Trunk not registered {#USERNAME}@{#HOST}'
                   priority: HIGH
+                  tags:
+                    - tag: scope
+                      value: availability
       tags:
-        - tag: Futur-Tech
+        - tag: class
+          value: voip
+        - tag: target
+          value: asterisk
+        - tag: service
+          value: pbx
       macros:
         - macro: '{$ASTERISK_CALLS_ACTIVE_WARN}'
           value: '20'
@@ -694,6 +757,9 @@ zabbix_export:
         length(last(/Asterisk PBX/check.asterisk[calls.longest.channel],#3))>1
       name: 'Long call duration detected (duration > {$ASTERISK_CALLS_DURATION_WARN}s): {ITEM.VALUE2}'
       priority: WARNING
+      tags:
+        - tag: scope
+          value: performance
   graphs:
     - uuid: a8842b9a4dce49ada2ff232714ee120b
       name: 'Asterisk Concurrent Active Calls'
