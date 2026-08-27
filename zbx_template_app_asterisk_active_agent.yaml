@@ -16,7 +16,7 @@ zabbix_export:
         https://github.com/Futur-Tech/futur-tech-zabbix-asterisk
       vendor:
         name: Futur-Tech
-        version: 7.0-2
+        version: 7.0-3
       groups:
         - name: Templates
         - name: Templates/Applications
@@ -263,13 +263,17 @@ zabbix_export:
           value_type: TEXT
           trends: '0'
           preprocessing:
-            - type: DISCARD_UNCHANGED_HEARTBEAT
-              parameters:
-                - 3h
             - type: MATCHES_REGEX
               parameters:
                 - .+
               error_handler: DISCARD_VALUE
+            - type: NOT_MATCHES_REGEX
+              parameters:
+                - '[^0-9.\r\n]'
+              error_handler: DISCARD_VALUE
+            - type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - 3h
           tags:
             - tag: component
               value: network
