@@ -117,12 +117,12 @@ zabbix_export:
               priority: INFO
               description: 'A configuration change was made less than 10 minutes ago'
               manual_close: 'YES'
-              tags:
-                - tag: scope
-                  value: notice
               dependencies:
                 - name: 'Asterisk service has been restarted (uptime < 10m)'
                   expression: 'last(/Asterisk PBX/check.asterisk[systemuptime])<10m'
+              tags:
+                - tag: scope
+                  value: notice
         - uuid: 1703acfdf9dd489ea6368b3ffccae46b
           name: 'Asterisk: PJSIP Endpoints Offline'
           type: ZABBIX_ACTIVE
@@ -314,9 +314,6 @@ zabbix_export:
                   expression: 'avg(/Asterisk PBX/check.asterisk[iax2.peer.latency,{#PEER}],15m)>{$ASTERISK_PEER_LATENCY_WARN}'
                   name: 'IAX2 peer {#PEER} high latency'
                   priority: WARNING
-                  tags:
-                    - tag: scope
-                      value: performance
                   description: 'Peer high latency detected'
                   dependencies:
                     - name: 'IAX2 peer {#PEER} is disconnected'
@@ -325,6 +322,9 @@ zabbix_export:
                       expression: |
                         find(/Asterisk PBX/check.asterisk[iax2.peer.status,{#PEER}],#3,"regexp","OK")=0
                         and {$ASTERISK_IMPORTANT_PEER:"{#PEER}"}=1
+                  tags:
+                    - tag: scope
+                      value: performance
             - uuid: 82920fa7805c47759f02c43fb395a0fd
               name: 'Asterisk: IAX2 peer {#PEER} status'
               type: ZABBIX_ACTIVE
@@ -342,14 +342,14 @@ zabbix_export:
                   expression: 'find(/Asterisk PBX/check.asterisk[iax2.peer.status,{#PEER}],#3,"regexp","OK")=0'
                   name: 'IAX2 peer {#PEER} is disconnected'
                   priority: AVERAGE
-                  tags:
-                    - tag: scope
-                      value: availability
                   dependencies:
                     - name: 'Important IAX2 peer {#PEER} is disconnected'
                       expression: |
                         find(/Asterisk PBX/check.asterisk[iax2.peer.status,{#PEER}],#3,"regexp","OK")=0
                         and {$ASTERISK_IMPORTANT_PEER:"{#PEER}"}=1
+                  tags:
+                    - tag: scope
+                      value: availability
                 - uuid: 87fa45fefccb4f138a263ab308da4244
                   expression: |
                     find(/Asterisk PBX/check.asterisk[iax2.peer.status,{#PEER}],#3,"regexp","OK")=0
@@ -409,9 +409,6 @@ zabbix_export:
                   expression: 'avg(/Asterisk PBX/check.asterisk[pjsip.endpoint.latency,{#ENDPOINT}],15m)>{$ASTERISK_PEER_LATENCY_WARN}'
                   name: 'PJSIP endpoint {#ENDPOINT} high latency'
                   priority: WARNING
-                  tags:
-                    - tag: scope
-                      value: performance
                   description: 'Peer high latency detected'
                   dependencies:
                     - name: 'Important PJSIP endpoint {#ENDPOINT} is disconnected'
@@ -420,6 +417,9 @@ zabbix_export:
                         and {$ASTERISK_IMPORTANT_PEER:"{#ENDPOINT}"}=1
                     - name: 'PJSIP endpoint {#ENDPOINT} is disconnected'
                       expression: 'find(/Asterisk PBX/check.asterisk[pjsip.endpoint.status,{#ENDPOINT}],#3,"regexp","Avail")=0'
+                  tags:
+                    - tag: scope
+                      value: performance
             - uuid: a6f6d157248c4974a23207f68b5bf7fd
               name: 'Asterisk: PJSIP endpoint {#ENDPOINT} status'
               type: ZABBIX_ACTIVE
@@ -446,14 +446,14 @@ zabbix_export:
                   expression: 'find(/Asterisk PBX/check.asterisk[pjsip.endpoint.status,{#ENDPOINT}],#3,"regexp","Avail")=0'
                   name: 'PJSIP endpoint {#ENDPOINT} is disconnected'
                   priority: AVERAGE
-                  tags:
-                    - tag: scope
-                      value: availability
                   dependencies:
                     - name: 'Important PJSIP endpoint {#ENDPOINT} is disconnected'
                       expression: |
                         find(/Asterisk PBX/check.asterisk[pjsip.endpoint.status,{#ENDPOINT}],#3,"regexp","Avail")=0 
                         and {$ASTERISK_IMPORTANT_PEER:"{#ENDPOINT}"}=1
+                  tags:
+                    - tag: scope
+                      value: availability
         - uuid: 6a4dc7d5d38f46f886f7b24f3c6fad60
           name: 'Discovery PJSIP Trunks'
           type: ZABBIX_ACTIVE
@@ -504,9 +504,6 @@ zabbix_export:
                   expression: 'avg(/Asterisk PBX/check.asterisk[sip.peer.latency,{#PEER}],15m)>{$ASTERISK_PEER_LATENCY_WARN}'
                   name: 'SIP peer {#PEER} high latency'
                   priority: WARNING
-                  tags:
-                    - tag: scope
-                      value: performance
                   description: 'Peer high latency detected'
                   dependencies:
                     - name: 'Important SIP peer {#PEER} is disconnected'
@@ -515,6 +512,9 @@ zabbix_export:
                         and {$ASTERISK_IMPORTANT_PEER:"{#PEER}"}=1
                     - name: 'SIP peer {#PEER} is disconnected'
                       expression: 'find(/Asterisk PBX/check.asterisk[sip.peer.status,{#PEER}],#3,"regexp","OK")=0'
+                  tags:
+                    - tag: scope
+                      value: performance
             - uuid: 72aaf35022d14dadbb4cbeec76f67edd
               name: 'Asterisk: SIP peer {#PEER} status'
               type: ZABBIX_ACTIVE
@@ -541,14 +541,14 @@ zabbix_export:
                   expression: 'find(/Asterisk PBX/check.asterisk[sip.peer.status,{#PEER}],#3,"regexp","OK")=0'
                   name: 'SIP peer {#PEER} is disconnected'
                   priority: AVERAGE
-                  tags:
-                    - tag: scope
-                      value: availability
                   dependencies:
                     - name: 'Important SIP peer {#PEER} is disconnected'
                       expression: |
                         find(/Asterisk PBX/check.asterisk[sip.peer.status,{#PEER}],#3,"regexp","OK")=0
                         and {$ASTERISK_IMPORTANT_PEER:"{#PEER}"}=1
+                  tags:
+                    - tag: scope
+                      value: availability
         - uuid: 6020f4bf93094f7c9c8f3f8ece99abdc
           name: 'Discovery SIP Trunks'
           type: ZABBIX_ACTIVE
@@ -578,10 +578,10 @@ zabbix_export:
       tags:
         - tag: class
           value: voip
-        - tag: target
-          value: asterisk
         - tag: service
           value: pbx
+        - tag: target
+          value: asterisk
       macros:
         - macro: '{$ASTERISK_CALLS_ACTIVE_WARN}'
           value: '20'
